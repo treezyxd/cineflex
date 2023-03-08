@@ -1,8 +1,8 @@
 import { Home } from "../../components/Home";
 
-export default function HomePage() {
+export default function HomePage({ URL }) {
     return (
-      <Home />  
+      <Home URL={URL} />  
     );
 }
 
