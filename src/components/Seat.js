@@ -10,7 +10,7 @@ function Seat({id, number, isAvailable, chosenSeats, setChosenSeats, numberSeat,
 
     function seatVerification() {
         if(isAvailable === false) {
-            alert("this seat is not available");
+            alert("Este assento não está disponivel!");
             return;
         } else {
             setSeatSelected(!seatSelected);
@@ -27,7 +27,7 @@ function Seat({id, number, isAvailable, chosenSeats, setChosenSeats, numberSeat,
 
 
     return (
-        <SeatSession className="circle" isAvailable={isAvailable} seatSelected={seatSelected} onClick={seatVerification} borderColor={isAvailable}>
+        <SeatSession data-test="seat" className="circle" isAvailable={isAvailable} seatSelected={seatSelected} onClick={seatVerification} borderColor={isAvailable}>
             <p>{number}</p>
         </SeatSession>
     );

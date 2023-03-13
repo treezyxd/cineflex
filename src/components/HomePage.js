@@ -28,7 +28,7 @@ function HomePage({setReturnButton}) {
         <HomeScreen>
             <h1>Selecione o filme</h1>
             <div className='movies-list'>
-                {movies.map((movie) => <Movie key={movie.id} posterURL={movie.posterURL} idFilme={movie.id} setReturnButton={setReturnButton}/>)} 
+                {movies.map((movie) => <Movie data-test="movie" key={movie.id} posterURL={movie.posterURL} idFilme={movie.id} setReturnButton={setReturnButton}/>)} 
             </div>
         </HomeScreen>
     ) : <LoadingScreen>

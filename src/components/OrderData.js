@@ -12,23 +12,23 @@ function OrderData({orderData, setOrderData}) {
             <div className="sucess">
                 <h1>Pedido feito com sucesso</h1>
             </div>
-            <div className="data">
+            <div className="data" data-test="movie-info">
                 <p>Filme e sessão</p>
                 <p>{orderData.movie}</p>
                 <p>{orderData.data} {orderData.time}</p>
             </div>
-            <div className="data">
+            <div className="data" data-test="seats-info">
                 <p>Ingressos</p>
                 {orderData.tickets.map((ticket)=> <p key={ticket}>Assento {ticket}</p>)}
             </div>
-            <div className="data">
+            <div className="data" data-test="client-info">
                 <p>Comprador</p>
                 <p>Nome: {orderData.name}</p>
                 <p>CPF: {orderData.cpf}</p>
             </div>
             <div className="button_align">
                 <Link to="/">
-                    <button onClick={() => setOrderData()}>Voltar para Home</button>
+                    <button data-test="go-home-btn" onClick={() => setOrderData()}>Voltar para Home</button>
                 </Link>
             </div>
         </OrderDataScreen>

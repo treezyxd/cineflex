@@ -32,11 +32,11 @@ function SessionsTimes() {
             <SessionsTimesScreen>
                 <h1>Selecione o horário</h1>
                 <div className="sessions">
-                {sessions.days.map((session) => <SessionTime key={session.id} weekday={session.weekday} date={session.date}
+                {sessions.days.map((session) => <SessionTime data-test="movie-day" key={session.id} weekday={session.weekday} date={session.date}
                 showtimes={session.showtimes} setSessionData={setSessionData} />)}
                 </div>
             </SessionsTimesScreen>
-            <Footer posterURL={sessions.posterURL} title={sessions.title} sessionData={sessionData}/>
+            <Footer data-test="footer" posterURL={sessions.posterURL} title={sessions.title} sessionData={sessionData}/>
         </>
     ) : <LoadingScreen>
             <img src={Loading} alt="loading" />

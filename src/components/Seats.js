@@ -19,7 +19,7 @@ function Seats({setOrderData, setReturnButton}) {
         e.preventDefault();
 
         if(chosenSeats.length === 0) {
-            alert('Select the seats!')
+            alert('Selecione os assentos!')
         } else {
             setOrderData({movie: seats.movie.title, day: seats.day.weekday, data: seats.day.date,time: seats.name, name: inputData.name, cpf: inputData.cpf, tickets: [...numberSeat]})
             const URL_RESERVATION_SEATS = "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many"
@@ -80,17 +80,17 @@ function Seats({setOrderData, setReturnButton}) {
                     </div>
                     <Form onSubmit={bookSeats} >
                         <div className="container">
-                            <label>Nome do comprador:<input type="text" placeholder="Digite seu nome..." required value={inputData.nome} onChange={(e) => setInputData({...inputData, name: e.target.value})}></input></label>
+                            <label data-test="client-name">Nome do comprador:<input type="text" placeholder="Digite seu nome..." required value={inputData.nome} onChange={(e) => setInputData({...inputData, name: e.target.value})}></input></label>
                         </div>
                         <div className="container">
-                        <label>CPF do comprador:<input type="text" placeholder="Digite seu CPF..." required value={inputData.cpf} maxLength='14' onChange={(e) => setInputData({...inputData, cpf: cpfMask(e.target.value)})}></input></label>
+                        <label data-test="client-cpf">CPF do comprador:<input type="text" placeholder="Digite seu CPF..." required value={inputData.cpf} maxLength='14' onChange={(e) => setInputData({...inputData, cpf: cpfMask(e.target.value)})}></input></label>
                         </div>
                         <div className="submit">
-                            <button type="submit">Reservar assento(s)</button>
+                            <button data-test="book-seat-btn" type="submit">Reservar assento(s)</button>
                         </div>
                     </Form>
             </SeatsScreen>
-            <Footer posterURL={seats.movie.posterURL} title={seats.movie.title} sessionData={{weekday: seats.day.weekday, time: seats.name}} />
+            <Footer data-test="footer" posterURL={seats.movie.posterURL} title={seats.movie.title} sessionData={{weekday: seats.day.weekday, time: seats.name}} />
         </>
     ) :  <LoadingScreen>
             <img src={Loading} alt="loading" />

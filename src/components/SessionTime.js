@@ -6,7 +6,7 @@ function SessionTime({weekday, date, showtimes, setSessionData}) {
         <p>{weekday} - {date}</p>
         <div className="sessions__times">
                 {showtimes.map((time) => <Link key={time.id} to={`/assentos/${time.id}`}>
-                    <div className="session__time" onClick={()=> setSessionData({weekday: weekday, time: time.name})}><span>{time.name}</span></div>
+                    <div data-test="showtime" className="session__time" onClick={()=> setSessionData({weekday: weekday, time: time.name})}><span>{time.name}</span></div>
                     </Link>)}
         </div>
     </>
